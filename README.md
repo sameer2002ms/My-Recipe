@@ -7,11 +7,14 @@ here User can login
 
 ![login ss](https://github.com/sameer2002ms/My-Recipe/assets/76088993/cd3cebad-075b-41b6-84a6-4715c6d41ce5)
 
-here user can add their Recipe
+here user can add their recipe
+
+![addrecipe ss](https://github.com/sameer2002ms/My-Recipe/assets/76088993/75e51859-340e-4e22-94c8-8f5bb3d023f0)
+
+here user can see their Recipe
 
 ![itemsadded ss](https://github.com/sameer2002ms/My-Recipe/assets/76088993/1b543eb4-a2ab-4aa6-8285-3fb936eeda54)
 
-here user can update their recipe
 
-![addrecipe ss](https://github.com/sameer2002ms/My-Recipe/assets/76088993/75e51859-340e-4e22-94c8-8f5bb3d023f0)
+
 
