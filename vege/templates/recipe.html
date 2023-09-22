@@ -1,0 +1,82 @@
+{% extends 'base.html' %} {%block start%}
+
+
+
+
+
+<div class="container mt-5">
+  {% comment %} here we have use enctype to take the image and used post to get
+  the data {% endcomment %}
+  <form
+    class="col-5 mx-auto card p-3" 
+    method="post"
+    enctype="multipart/form-data"
+  > 
+
+
+
+    {% csrf_token %}
+    <div class="mb-3">
+      <h1>Add Recipe</h1>
+      <label class="form-label">Recipe Name</label>
+      <input name="recipe_name" required type="text" class="form-control" />
+    </div>
+</br>
+    <div class="mb-3">
+      <label required class="form-label"
+        >Recipe Discription</label>
+      <textarea class="form-control" name="recipe_dis"></textarea>
+    </div>
+</br>
+
+    <div class="mb-3">
+      <label class="form-label">Recipe Image</label>
+      <input name="recipe_img" type="file" class="form-control" />
+    </div>
+</br>
+
+    <button type="submit" class="btn btn-primary">Add Recipe</button>
+  </form>
+  <form>
+  <div class="mb-3">
+    <label class="form-label">Search Recipe</label>
+    <input name="search" value="{{recipe.recipe_name}}" type="text" class="form-control" />
+  </div>
+
+<div>
+  <button type = "submit" class = "btn btn-primary">Search</button>
+</form>
+  <table class="table table-bordered mt-3" >
+    <thead>
+      <tr>
+        <th scope="col">SL. NO</th>
+        <th scope="col">Recipe Name</th>
+        <th scope="col">Recipe Discription</th>
+        <th scope="col">Recipe Image</th>
+        <th scope="col">Delete Recipe</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      {%for recipe in recipes%}
+
+      <tr>
+        <th scope="row">{{forloop.counter}}</th>
+        <td>{{recipe.recipe_name}}</td>
+        <td>{{recipe.recipe_dis}}</td>
+        <td>
+          <img src = "/media/{{recipe.recipe_img}}" style = "height : 200px"
+        </td>
+        <td>
+          <a href = "/update-recipe/{{recipe.id}}" class = "btn btn-primary m-2">Update</button>
+
+            <a href = "/delete-recipe/{{recipe.id}}" class = "btn btn-danger m-2">Delete</button>
+
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+{% endblock %}

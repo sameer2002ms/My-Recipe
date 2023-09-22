@@ -1,0 +1,62 @@
+{% extends 'base.html' %} {%block start%}
+
+
+
+<div class="container mt-5">
+  {% comment %} here we have use enctype to take the image and used post to get
+  the data {% endcomment %}
+  <form
+    class="col-5 mx-auto card p-3"
+    method="post"
+    enctype="multipart/form-data"
+  >
+
+    {% csrf_token %}
+    <div class="mb-3">
+      <h1>Register to Add Recipes</h1>
+      <form>
+
+{% comment %} here i am showing the alert message {% endcomment %}
+        {% if messages %}
+        <div class="alert alert-primary" role="alert">
+          {% for message in messages %}
+            {{ message }}   
+          {% endfor %}
+    
+          </div>
+    {% endif %}
+
+
+        <div class="form-group">
+            <label for="exampleInputEmail1">First Name</label>
+            <input type="text" class="form-control" name = "first_name" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+          </div>
+
+          <div class="form-group">
+            <label for="exampleInputEmail1">Last Name</label>
+            <input type="text" class="form-control" name = "last_name" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+          </div>
+
+
+        <div class="form-group">
+          <label for="exampleInputEmail1">Email address</label>
+          <input type="text" class="form-control"  name = "username" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+          <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Password</label>
+          <input type="password" class="form-control" name = "password" id="exampleInputPassword1" placeholder="Password">
+        </div>
+    
+
+        <p> Already have an account <a href = "/login"/"> Login</a> </p>
+
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+
+</br>
+
+</div>
+
+{% endblock %}

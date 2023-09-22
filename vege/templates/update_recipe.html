@@ -1,0 +1,38 @@
+{% extends 'base.html' %} {%block start%}
+
+<div class="container mt-5">
+  {% comment %} here we have use enctype to take the image and used post to get
+  the data {% endcomment %}
+  <form
+    class="col-5 mx-auto card p-3"
+    method="post"
+    enctype="multipart/form-data"
+  >
+    {% csrf_token %}
+    <div class="mb-3">
+      <h1>Update Recipe</h1>
+      <label class="form-label">Recipe Name</label>
+      <input name="recipe_name" value="{{recipe.recipe_name}}" required type="text" class="form-control" />
+    </div>
+</br>
+    <div class="mb-3">
+      <label required class="form-label"
+        >Recipe Discription</label>
+      <textarea class="form-control" value="" name="recipe_dis">{{recipe.recipe_dis}}</textarea>
+    </div>
+</br>
+
+    <div class="mb-3">
+      <label class="form-label">Recipe Image</label>
+      <input name="recipe_img" type="file" class="form-control" />
+    </div>
+</br>
+
+    <button type="submit" class="btn btn-success">Add Recipe</button>
+  </form>
+
+</br>
+
+</div>
+
+{% endblock %}
